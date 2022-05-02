@@ -1,3 +1,4 @@
+<!-- HTML -->
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -56,8 +57,31 @@
             <div id="atomicmassOutput"></div>
           </div>
         </div>
-            
       </div>
     </div>
   </div>
 </div>
+<!-- HTML -->
+
+<!-- CSS -->
+body{
+  margin-top:70px;
+  background:#336;
+  color:#fff;
+}
+<!-- CSS -->
+
+<!-- JavaScript -->
+document.getElementById("output").style.visibility = "hidden";
+document.getElementById("kgInput").addEventListener("input", function(e) {
+  document.getElementById("output").style.visibility = "visible";
+  let kg = e.target.value;
+  document.getElementById("gramsOutput").innerHTML = kg * 1000;
+  document.getElementById("mgramsOutput").innerHTML = kg * 1000000;
+  document.getElementById("lbsOutput").innerHTML = kg * 2.204623;
+  document.getElementById("stnOutput").innerHTML = kg * 0.157473;
+  document.getElementById("ozOutput").innerHTML = kg * 35.27396;
+  document.getElementById("tonOutput").innerHTML = kg * 0.001102311;
+  document.getElementById("atomicmassOutput").innerHTML = kg * 602214129011673940000000000;
+});
+<!-- JavaScript -->
