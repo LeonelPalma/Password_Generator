@@ -63,15 +63,20 @@
 </div>
 <!-- HTML -->
 
+
 <!-- CSS -->
+<style>
 body{
   margin-top:70px;
   background:#336;
   color:#fff;
 }
+</style>
 <!-- CSS -->
 
+
 <!-- JavaScript -->
+<script>
 document.getElementById("output").style.visibility = "hidden";
 document.getElementById("kgInput").addEventListener("input", function(e) {
   document.getElementById("output").style.visibility = "visible";
@@ -84,4 +89,5 @@ document.getElementById("kgInput").addEventListener("input", function(e) {
   document.getElementById("tonOutput").innerHTML = kg * 0.001102311;
   document.getElementById("atomicmassOutput").innerHTML = kg * 602214129011673940000000000;
 });
+</script>
 <!-- JavaScript -->
