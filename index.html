@@ -1,86 +1,124 @@
 <!-- HTML -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <title>Weight Converter</title>
-    </head>
-    <body>
-        <div class="container center">
-          <div class="row">
-            <div class="col-md-6 offset-md-3">
-              <h1 class="display-4 text-center mb-3">Weight Converter</h1>
-              <form>
-                <div class="form-group">
-                  <input id="kgInput" type="number" class="form-control form-control-lg" placeholder="Enter Kilograms...">
-                </div>
-              </form>
-              <div id="output">
-                <div class="card card-primary mb-2">
-                  <div class="card-block">
-                    <h4>Grams:</h4>
-                    <div id="gramsOutput"></div>
-                  </div>
-                </div>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Generator</title>
 
-                <div class="card card-primary mb-2">
-                  <div class="card-block">
-                    <h4>Miligrams:</h4>
-                    <div id="mgramsOutput"></div>
-                  </div>
-                </div>
-
-                <div class="card card-success mb-2">
-                  <div class="card-block">
-                    <h4>Pounds:</h4>
-                    <div id="lbsOutput"></div>
-                  </div>
-                </div>
-
-                <div class="card card-warning mb-2">
-                  <div class="card-block">
-                    <h4>Stones:</h4>
-                    <div id="stnOutput"></div>
-                  </div>
-                </div>
-
-                <div class="card card-danger mb-2">
-                  <div class="card-block">
-                    <h4>Ounces:</h4>
-                    <div id="ozOutput"></div>
-                  </div>
-                </div>
-
-                <div class="card card-info mb-2">
-                  <div class="card-block">
-                    <h4>Tons:</h4>
-                    <div id="tonOutput"></div>
-                  </div>
-                </div>
-
-                <div class="card card-info mb-2">
-                  <div class="card-block">
-                    <h4>Atomic Mass Unit:</h4>
-                    <div id="atomicmassOutput"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-  </body>
+</head>
+<body>
+<div class="pw-container">
+<div class="pw-header">
+<div class="pw">
+<span id="pw"> Password Here</span>
+<button id="copy">Copy</button>
+</div>
+</div>
+<div class="pw-body">
+<div class="form-control">
+<lable for="length">Password Length</lable>
+<input id="len" value="10" type="number" min="8" max="30">
+</div>
+<div class="form-control">
+<lable for="upper">Contain Uppercase Letters</lable>
+<input id="upper" type="checkbox">
+</div>
+<div class="form-control">
+<lable for="lower">Contain Lowercase Letters</lable>
+<input id="lower" type="checkbox">
+</div>
+<div class="form-control">
+<lable for="number">Contain Numbers </lable>
+<input id="number" type="checkbox">
+</div>
+<div class="form-control">
+<lable for="symbol">Contain Symbol</lable>
+<input id="symbol" type="checkbox">
+</div>
+<button class="generate" id="generate">Generate Password</button>
+</div>
+</div>
+</body>
+</html>
 <!-- HTML -->
 
 
 <!-- CSS -->
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+*{
+box-sizing: border-box;
+}
 body{
-  margin-top:70px;
-  background:#336;
-  color:#fff;
+margin: 0;
+font-family: "Poppins", sans-serif;
+background-color: rebeccapurple;
+color: #eee;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+}
+.pw-container{
+width: 400px;
+background-color: rgb(69, 17, 118);
+box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+.pw-header{
+padding: 1rem;
+}
+.pw{
+width: 100%;
+height: 70px;
+background-color: rebeccapurple;
+display: flex;
+align-items: center;
+position: relative;
+font-size: 1.5rem;
+padding: 1rem;
+/* overflow: auto; */
+}
+.pw button{
+position: absolute;
+top: 0;
+right: 0;
+transform: translate(0, 50%);
+transition: opacity 0.2s ease, transform 0.2s ease;
+opacity: 0;
+background-color: rgb(35, 5, 66);
+padding: 0.25rem 1rem;
+font-family: inherit;
+font-weight: bold;
+color: #fff;
+border: none;
+cursor: pointer;
+}
+.pw:hover button{
+opacity: 1;
+transform: translate(0,-80%);
+}
+.pw-body{
+padding: 0 1rem 1rem;
+}
+.form-control{
+color: #eee;
+display: flex;
+justify-content: space-between;
+margin: 0.75rem 0;
+}
+.generate{
+display: block;
+background-color: #ecb602;
+color: rebeccapurple;
+font-weight: bold;
+padding: 1rem;
+font-size: 1.5rem;
+margin-top: 1rem;
+border: none;
+width: 100%;
+cursor: pointer;
 }
 </style>
 <!-- CSS -->
@@ -88,17 +126,69 @@ body{
 
 <!-- JavaScript -->
 <script>
-document.getElementById("output").style.visibility = "hidden";
-document.getElementById("kgInput").addEventListener("input", function(e) {
-  document.getElementById("output").style.visibility = "visible";
-  let kg = e.target.value;
-  document.getElementById("gramsOutput").innerHTML = kg * 1000;
-  document.getElementById("mgramsOutput").innerHTML = kg * 1000000;
-  document.getElementById("lbsOutput").innerHTML = kg * 2.204623;
-  document.getElementById("stnOutput").innerHTML = kg * 0.157473;
-  document.getElementById("ozOutput").innerHTML = kg * 35.27396;
-  document.getElementById("tonOutput").innerHTML = kg * 0.001102311;
-  document.getElementById("atomicmassOutput").innerHTML = kg * 602214129011673940000000000;
+const PwEl = document.getElementById("pw");
+const copyEl = document.getElementById("copy");
+const lenEl = document.getElementById("len");
+const upperEl = document.getElementById("upper");
+const lowerEl = document.getElementById("lower");
+const symbolEl = document.getElementById("symbol");
+const generateEl = document.getElementById("generate");
+const numberEl = document.getElementById("number");
+const upperLetters = "ABCDEFGHIJKLMNOPQSRTUVWXYZ";
+const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
+const numbers = "0123456789";
+const symbol = "~!@#$%^&*()_+=|";
+function getLowercase() {
+return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
+}
+function getUppercase() {
+return upperLetters[Math.floor(Math.random() * upperLetters.length)];
+}
+function getNumber() {
+return numbers[Math.floor(Math.random() * numbers.length)];
+}
+function getSymbol() {
+return symbol[Math.floor(Math.random() * symbol.length)];
+}
+function generatePassword() {
+const len = lenEl.value;
+let password = "";
+for (let i = 0; i < len; i++) {
+const x = generateX();
+password += x;
+}
+PwEl.innerText = password;
+}
+function generateX() {
+const xs = [];
+if (upperEl.checked) {
+xs.push(getUppercase());
+}
+if (lowerEl.checked) {
+xs.push(getLowercase());
+}
+if (numberEl.checked) {
+xs.push(getNumber());
+}
+if (symbolEl.checked) {
+xs.push(getSymbol());
+}
+if (xs.length === 0) return "";
+return xs[Math.floor(Math.random() * xs.length)];
+}
+generateEl.addEventListener("click", generatePassword);
+copyEl.addEventListener("click", () => {
+const textarea = document.createElement("textarea");
+const password = PwEl.innerText;
+if (!password) {
+return;
+}
+textarea.value = password;
+document.body.appendChild(textarea);
+textarea.select();
+document.execCommand("copy");
+textarea.remove();
+alert("password copied to clipboard");
 });
 </script>
 <!-- JavaScript -->
