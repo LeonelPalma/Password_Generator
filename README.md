@@ -5,7 +5,7 @@
 in a password like Containing uppercase, lowercase, number, and symbol words in the password.</p>
 
 You can test in
-<a href="https://leonelpalma.github.io/password_generator/" target="_blank">Generate Now!</a>
+<a href="https://leonelpalma.github.io/Password_Generator/" target="_blank">Generate Now!</a>
 
 I hope you like it... Contact me later, ok?
 
