@@ -5,41 +5,42 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Password Generator</title>
+<title>Leonel Palma - Password Generator</title>
 
 </head>
 <body>
-<div class="pw-container">
-<div class="pw-header">
-<div class="pw">
-<span id="pw"> Password Here</span>
-<button id="copy">Copy</button>
-</div>
-</div>
 <div class="pw-body">
-<div class="form-control">
-<lable for="length">Password Length</lable>
-<input id="len" value="10" type="number" min="8" max="30">
-</div>
-<div class="form-control">
-<lable for="upper">Contain Uppercase Letters</lable>
-<input id="upper" type="checkbox">
-</div>
-<div class="form-control">
-<lable for="lower">Contain Lowercase Letters</lable>
-<input id="lower" type="checkbox">
-</div>
-<div class="form-control">
-<lable for="number">Contain Numbers </lable>
-<input id="number" type="checkbox">
-</div>
-<div class="form-control">
-<lable for="symbol">Contain Symbol</lable>
-<input id="symbol" type="checkbox">
-</div>
-<button class="generate" id="generate">Generate Password</button>
-</div>
-</div>
+  <div><h1>Password Generator</h1></div>
+  <div class="form-control">
+    <lable for="length">Password Length</lable>
+    <input id="len" value="10" type="number" min="8" max="30">
+  </div>
+  <div class="form-control">
+    <lable for="upper">Contain Uppercase Letters</lable>
+    <input id="upper" type="checkbox">
+  </div>
+  <div class="form-control">
+    <lable for="lower">Contain Lowercase Letters</lable>
+    <input id="lower" type="checkbox">
+  </div>
+  <div class="form-control">
+    <lable for="number">Contain Numbers </lable>
+    <input id="number" type="checkbox">
+  </div>
+  <div class="form-control">
+    <lable for="symbol">Contain Symbol</lable>
+    <input id="symbol" type="checkbox">
+  </div>
+  <button class="generate" id="generate">Generate Password</button>
+  </div>
+  </div>
+  <div class="pw-container">
+    <div class="pw-header">
+      <div class="pw">
+        <span id="pw">Select the fields for create</span>
+        <button id="copy">Copy</button>
+      </div>
+    </div>
 </body>
 </html>
 <!-- HTML -->
@@ -59,10 +60,10 @@ color: #eee;
 display: flex;
 align-items: center;
 justify-content: center;
-min-height: 100vh;
+min-height: 150vh;
 }
 .pw-container{
-width: 400px;
+width: 500px;
 background-color: rgb(69, 17, 118);
 box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
@@ -70,7 +71,7 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 padding: 1rem;
 }
 .pw{
-width: 100%;
+width: 200%;
 height: 70px;
 background-color: rebeccapurple;
 display: flex;
@@ -117,7 +118,7 @@ padding: 1rem;
 font-size: 1.5rem;
 margin-top: 1rem;
 border: none;
-width: 100%;
+width: 200%;
 cursor: pointer;
 }
 </style>
